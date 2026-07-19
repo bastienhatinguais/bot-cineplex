@@ -14,8 +14,9 @@ if hasattr(sys.stdout, "reconfigure"):
 
 THEATRE_ID = int(os.environ.get("THEATRE_ID", "7408"))
 MOVIE_KEYWORD = os.environ.get("MOVIE_KEYWORD", "odyssey").lower()
-DATES = os.environ.get("DATES", "2026-07-26,2026-07-27,2026-07-28,2026-07-29").split(",")
+DATES = os.environ.get("DATES", "2026-07-20,2026-07-21,2026-07-22,2026-07-23,2026-07-24").split(",")
 TARGET_HOUR = int(os.environ.get("TARGET_HOUR", "19"))  # 19h = 7pm
+EXPERIENCE = os.environ.get("EXPERIENCE", "IMAX").lower()  # filtre salle ("" = toutes)
 MIN_ROW = os.environ.get("MIN_ROW", "D").upper()  # rangee D ou plus loin (E, F, ...)
 # "Standard" exclut les sieges fauteuil roulant (EW*) et accompagnateur (EC*).
 # Mettre "Standard,Wheelchair,Companion" pour tout inclure.
@@ -51,6 +52,9 @@ def find_showtimes():
                     if MOVIE_KEYWORD not in movie.get("name", "").lower():
                         continue
                     for exp in movie.get("experiences", []):
+                        types = " ".join(exp.get("experienceTypes", [])).lower()
+                        if EXPERIENCE and EXPERIENCE not in types:
+                            continue
                         for sess in exp.get("sessions", []):
                             start = sess.get("showStartDateTime", "")
                             sid = sess.get("vistaSessionId") or sess.get("showtimeId")
