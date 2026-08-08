@@ -14,7 +14,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 THEATRE_ID = int(os.environ.get("THEATRE_ID", "7408"))
 MOVIE_KEYWORD = os.environ.get("MOVIE_KEYWORD", "odyssey").lower()
-DATES = os.environ.get("DATES", "2026-07-20,2026-07-21,2026-07-22,2026-07-23,2026-07-24").split(",")
+DATES = os.environ.get("DATES", "2026-09-05,2026-09-06,2026-09-07,2026-09-08,2026-09-09").split(",")
 TARGET_HOUR = int(os.environ.get("TARGET_HOUR", "19"))  # 19h = 7pm
 EXPERIENCE = os.environ.get("EXPERIENCE", "IMAX").lower()  # filtre salle ("" = toutes)
 MIN_ROW = os.environ.get("MIN_ROW", "D").upper()  # rangee D ou plus loin (E, F, ...)
@@ -26,7 +26,7 @@ PUSHBULLET_TOKEN = os.environ.get("PUSHBULLET_TOKEN", "")
 
 SHOWTIMES_URL = "https://apis.cineplex.com/prod/cpx/theatrical/api/v1/showtimes"
 TICKETING_URL = "https://apis.cineplex.com/prod/ticketing/api/v1/theatre/{t}/showtime/{s}"
-SUBSCRIPTION_KEY = "dcdac5601d864addbc2675a2e96cb1f8"
+SUBSCRIPTION_KEY = os.environ.get("SUBSCRIPTION_KEY", "dcdac5601d864addbc2675a2e96cb1f8")
 
 
 def get_json(url, headers=None):

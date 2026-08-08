@@ -1,7 +1,7 @@
 # Bot places Cineplex — The Odyssey
 
 Surveille les places disponibles (rangée D ou plus) pour les séances de 19h de
-**The Odyssey** au Cineplex Cinemas Vaughan (théâtre 7408), du 20 au 24 juillet 2026,
+**The Odyssey** au Cineplex Cinemas Vaughan (théâtre 7408), du 5 au 9 septembre 2026,
 et envoie une notification **Pushbullet** quand de nouvelles places apparaissent.
 
 ## Fonctionnement
@@ -44,7 +44,7 @@ PUSHBULLET_TOKEN=xxx python check_seats.py # envoie vraiment
 |---|---|---|
 | `THEATRE_ID` | `7408` | Cineplex Cinemas Vaughan |
 | `MOVIE_KEYWORD` | `odyssey` | Mot-clé dans le titre du film |
-| `DATES` | `2026-07-20,…,2026-07-24` | Dates à surveiller |
+| `DATES` | `2026-09-05,…,2026-09-09` | Dates à surveiller |
 | `TARGET_HOUR` | `19` | Heure de séance (19 = 19h00) |
 | `MIN_ROW` | `D` | Rangée minimale acceptée |
 | `EXPERIENCE` | `IMAX` | Filtre de salle (vide = toutes) |
